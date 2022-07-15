@@ -4,7 +4,7 @@ const {
   getGames,
   addGame,
   updateGame,
-  deleteGame 
+  deleteGame,
 } = require('../controllers/gameController')
 
 router.route('/').get(getGames).post(addGame)
