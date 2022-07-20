@@ -7,7 +7,9 @@ const {
   deleteGame,
 } = require('../controllers/gameController')
 
-router.route('/').get(getGames).post(addGame)
-router.route('/:id').put(updateGame).delete(deleteGame)
+const {protect} = require('../middleware/authMiddleware')
+
+router.route('/').get(protect, getGames).post(protect, addGame)
+router.route('/:id').put(protect, updateGame).delete(protect, deleteGame)
 
 module.exports = router
