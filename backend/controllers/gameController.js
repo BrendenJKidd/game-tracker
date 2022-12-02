@@ -17,13 +17,25 @@ const getGames = asyncHandler(async (req, res) => {
 // @ route POST /api/games
 // @ access Private
 const addGame = asyncHandler(async (req, res) => {
-  const game = await Game.create({
+  const { title, series, } = req.body
+  
+  if(!title || !series) {
+    res.status(400)
+    throw new Error('Please add all fields')
+  }
+
+const game = await Game.create({
     user: req.user.id,
     title: req.body.title,
-    releaseDate: req.body.release,
-  })
+    series: req.body.series,
+    developer: req.body.developer,
+    publisher: req.body.publisher,
+    releaseDate: req.body.releaseDate,
+    platform: req.body.platform,
+    status: req.body.status,
+})
 
-  res.status(200).json(game)
+res.status(200).json(game)
 })
 
 // @ desc Update game
@@ -37,16 +49,14 @@ const updateGame = asyncHandler(async (req, res) => {
     throw new Error('Game not found')
   }
 
-  const user = await User.findById(req.user.id)
-
   // Check for user
-  if(!user) {
+  if(!req.user) {
     res.status(401)
     throw new Error('User not found')
   }
 
   // Make sure the logged in user matches game user
-  if(game.user.toString() !==user.id) {
+  if(game.user.toString() !==req.user.id) {
     res.status(401)
     throw new Error('User not authorized')
   }
@@ -70,16 +80,14 @@ const deleteGame = asyncHandler(async (req, res) => {
     throw new Error('Game not found')
   }
 
-  const user = await User.findById(req.user.id)
-
   // Check for user
-  if(!user) {
+  if(!req.user) {
     res.status(401)
     throw new Error('User not found')
   }
 
   // Make sure the logged in user matches game user
-  if(game.user.toString() !==user.id) {
+  if(game.user.toString() !==req.user.id) {
     res.status(401)
     throw new Error('User not authorized')
   }
