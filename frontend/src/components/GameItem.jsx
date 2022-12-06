@@ -9,35 +9,34 @@ function GameItem({ game }){
 
     return (
       <div className='game-item'>
-        <div>
-        <h2>{game.title}</h2>
+        <div className="art">
+          <img></img>
         </div>
-        <div>
-        <h3>{game.series}</h3>
-        </div>
-        <div>
-        <h5>{game.releaseDate}</h5>
-        </div>
-        <div>
-        <h7>{game.publisher}</h7>
-        </div>
-        <div>
-        <h6>{game.platform}</h6>
-        </div>
-        <div>
-        <h4>{game.status}</h4>
-        </div>
-        <div>
-        <FontAwesomeIcon 
-          icon={faTrashCan} 
-          onClick={() => dispatch(deleteGame(game._id))}
-          className="trash"
-          />
-        <FontAwesomeIcon
-          icon={faPen}
-          className="edit-icon"
-        />
-        </div>
+        <div className="game-elements">
+          <div>
+            <h2>{game.title}</h2>
+          </div>
+          <div className="game-info">
+            <h3>{game.series}</h3>
+            <h5>{game.releaseDate}</h5>
+            <h7>{game.publisher}</h7>
+            <h6>{game.platform}</h6>
+          </div>
+          </div>
+          <div className="status">
+            <h4>{game.status}</h4>
+          </div>
+            <div className="item-icons">
+              <FontAwesomeIcon 
+                icon={faTrashCan} 
+                onClick={() => dispatch(deleteGame(game._id))}
+                className="trash"
+              />
+              <FontAwesomeIcon
+                icon={faPen}
+                className="edit-icon"
+              />
+            </div>
       </div>
     )
   }

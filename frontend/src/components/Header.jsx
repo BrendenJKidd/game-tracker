@@ -17,7 +17,7 @@ const { user } = useSelector((state) => state.auth)
 
   return (
     <header className={props.nightmode && "header_dark"}>
-      <div className="logo">
+      <div className="header-logo">
         <Link to='/' className="game-tracker">Game Tracker</Link>
       </div>
       <div className="header-elements">

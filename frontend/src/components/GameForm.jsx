@@ -46,7 +46,7 @@ function GameForm(props) {
         <form onSubmit={ onSubmit }>
           <div className="form-boxes">
             <div className="form-title">
-              <label htmlFor='text'>Titleaaaaaaaaaaaaa </label>
+              <label htmlFor='text'>Title </label>
               <input 
                 type='text' 
                 id='title' 

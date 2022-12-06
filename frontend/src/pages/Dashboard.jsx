@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import GameForm from '../components/GameForm'
 import GameItem from '../components/GameItem'
+import SNES from '../components/SNES'
 import { getGames, reset } from '../features/games/gameSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
@@ -75,10 +76,23 @@ function Dashboard() {
                     handleClick={handleClick}
                   />
                 </div>}
+      <div className="SNES-container">
+        <SNES />
+      </div>
       
       <div className="add-game">
         <p>Add Game</p>
         <button onClick={handleClick}>+</button>
+        <label htmlFor='text'>Sort By </label>
+              <select  
+              id="status" 
+              name="status" 
+              >
+                <option value="Unowned">Unowned</option>
+                <option value="Owned">Owned</option>
+                <option value="Clear">Clear</option>
+                <option value="Complete">Complete</option>
+              </select>
       </div>
 
       <section>
