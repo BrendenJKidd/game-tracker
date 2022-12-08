@@ -17,7 +17,7 @@ function Dashboard() {
 
   const [isShown, setIsShown] = useState(false)
 
-
+  const [sortValue, setSortValue] = useState(localStorage.getItem("savedSort") ? localStorage.getItem("savedSort") : "title")
 
   function handleClick() {
     setIsShown(!isShown)
@@ -37,35 +37,28 @@ function Dashboard() {
     return () => {
       dispatch(reset())
     }
-  }, [user, navigate, isError, message, dispatch])
+  }, [user, navigate, isError, message, dispatch, sortValue])
 
   if(isLoading) {
     return <faSpinner/>
   }
 
-  function byTitle(a, b) {
-    if (a.title > b.title) {
+  function byValue(a, b) {
+    if (a[sortValue] > b[sortValue]) {
       return 1;
-    } else if (a.title < b.title) {
+    } else if (a[sortValue] < b[sortValue]) {
       return -1;
     } else {
       return 0;
     }
   }
 
-  function byReleaseDate(a, b) {
-    if (a.releaseDate> b.releaseDate) {
-      return 1;
-    } else if (a.releaseDate < b.releaseDate) {
-      return -1;
-    } else {
-      return 0;
-    }
+  const chooseValue = (e) => {
+    setSortValue(e.target.value)
+    localStorage.setItem("savedSort", sortValue)
   }
 
   const sortedGames= [...games]
-
-  console.log(sortedGames.sort(byTitle))
   
   return (
     <div className="dashboard">
@@ -80,45 +73,41 @@ function Dashboard() {
         <SNES />
       </div>
       
-      <div className="add-game">
-        <p>Add Game</p>
-        <button onClick={handleClick}>+</button>
-        <label htmlFor='text'>Sort By </label>
-              <select  
-              id="status" 
-              name="status" 
-              >
-                <option value="Unowned">Unowned</option>
-                <option value="Owned">Owned</option>
-                <option value="Clear">Clear</option>
-                <option value="Complete">Complete</option>
-              </select>
+      <div className="top-buttons">
+        <div>
+          <label htmlFor='text'>Add Game: </label>
+          <button onClick={handleClick}>+</button>
+        </div>
+        <div>
+          <label htmlFor='text'>Sort By: </label>
+                <select  
+                id="sort" 
+                name="sort"
+                onChange={ chooseValue }
+                defaultValue={ sortValue }
+                >
+                  <option value="title">Title</option>
+                  <option value="releaseDate">Release Date</option>
+                </select>
+        </div>
+        <div>
+          <label htmlFor='text'>Filter: </label>
+                <select  
+                id="status" 
+                name="status" 
+                >
+                  <option value="Unowned">Unowned</option>
+                  <option value="Owned">Owned</option>
+                  <option value="Clear">Clear</option>
+                  <option value="Complete">Complete</option>
+                </select>
+        </div>
       </div>
 
       <section>
         {games.length > 0 ? (
           <div>
-            <div className='table-labels'>
-              <div>
-                <h6>Title</h6>
-              </div>
-              <div>
-                <h6>Series</h6>
-              </div>
-              <div>
-                <h6>Release Date</h6>
-              </div>
-              <div>
-                <h6>Publisher</h6>
-              </div>
-              <div>
-                <h6>Platform</h6>
-              </div>
-              <div>
-                <h6>Status</h6>
-              </div>
-          </div>
-            {sortedGames.map((game) => (
+            {sortedGames.sort(byValue).map((game) => (
               <GameItem key={game._id} game={game}/>
             ))}
           </div>

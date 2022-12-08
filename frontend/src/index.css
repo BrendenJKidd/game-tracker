@@ -122,9 +122,12 @@ header {
   align-items: center;
 }
 
-.add-game {
+.top-buttons {
   display: flex;
   margin: 25px;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90vw;
 }
 
 .form-container {
@@ -194,24 +197,6 @@ form {
   margin: 5%;
 }
 
-.table-labels {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: 10px;
-  background-color: var(--header-background);
-  width: 90vw;
-  border-radius: 1px;
-  position: sticky;
-  top: 1px;
-}
-
-.table-labels > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
 .game-item {
   display: flex;
   background-color: var(--game-background);
@@ -241,7 +226,8 @@ form {
   display: grid;
   grid-template-columns: 50% 50%;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
+  
 }
 
 .status {
@@ -251,8 +237,8 @@ form {
 }
 
 .item-icons {
-  justify-self: right;
   display: flex;
+  align-items: center;
   position: absolute;
   bottom: 10px;
   right: 10px;
