@@ -19,6 +19,8 @@ function Dashboard() {
 
   const [sortValue, setSortValue] = useState(localStorage.getItem("savedSort") ? localStorage.getItem("savedSort") : "title")
 
+  const [filterValue, setFilterValue] = useState("all")
+
   function handleClick() {
     setIsShown(!isShown)
   }
@@ -37,7 +39,7 @@ function Dashboard() {
     return () => {
       dispatch(reset())
     }
-  }, [user, navigate, isError, message, dispatch, sortValue])
+  }, [user, navigate, isError, message, dispatch, sortValue,])
 
   if(isLoading) {
     return <faSpinner/>
@@ -59,6 +61,11 @@ function Dashboard() {
   }
 
   const sortedGames= [...games]
+
+  const filterChange = (e) => {
+    console.log(e.target.value)
+    setFilterValue(e.target.value)
+  }
   
   return (
     <div className="dashboard">
@@ -95,7 +102,9 @@ function Dashboard() {
                 <select  
                 id="status" 
                 name="status" 
+                onChange={ filterChange }
                 >
+                  <option value="all">All</option>
                   <option value="Unowned">Unowned</option>
                   <option value="Owned">Owned</option>
                   <option value="Clear">Clear</option>
@@ -108,7 +117,10 @@ function Dashboard() {
         {games.length > 0 ? (
           <div>
             {sortedGames.sort(byValue).map((game) => (
-              <GameItem key={game._id} game={game}/>
+              <GameItem 
+                key={game._id} 
+                game={game}
+                filterValue={filterValue}/>
             ))}
           </div>
         ) : (

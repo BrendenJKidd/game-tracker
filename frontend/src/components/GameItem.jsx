@@ -4,9 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 
-function GameItem({ game }){
+function GameItem({ game, filterValue }){
   const dispatch = useDispatch()
 
+  if (filterValue === "all" || filterValue === game.status) { 
+
+    console.log(filterValue)
     return (
       <div className='game-item'>
         <div className="art">
@@ -39,6 +42,7 @@ function GameItem({ game }){
             </div>
       </div>
     )
+  }
   }
 
 export default GameItem
