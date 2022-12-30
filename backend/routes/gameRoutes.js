@@ -7,7 +7,7 @@ const {
   deleteGame,
 } = require('../controllers/gameController')
 
-const {protect} = require('../middleware/authMiddleware')
+const {protect} = require('../middleWare/authMiddleware')
 
 router.route('/').get(protect, getGames).post(protect, addGame)
 router.route('/:id').put(protect, updateGame).delete(protect, deleteGame)
