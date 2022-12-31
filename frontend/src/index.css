@@ -101,7 +101,14 @@ header {
 
 .header-logo {
   justify-self: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 10px;
+}
+
+.main-logo {
+  height: 10vh;
 }
 
 .game-tracker {
@@ -628,4 +635,54 @@ body {
   background: #fece15;
   left: 0.4em;
   top: 0.3em;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+input {
+  border: none;
+  border-radius: 2px;
+}
+
+.email {
+  margin: 5px;
+  border-radius: 2px;
+  width: 30vw;
+  height: 3vh;
+}
+
+.password {
+  margin: 10px;
+  border-radius: 2px;
+  width: 30vw;
+  height: 3vh;
+}
+
+.login-submit {
+  margin: 10px;
+  width: 50%;
+  height: 5vh;
+}
+
+button {
+  border: none;
+  background-color: var(--header-background);
+  color: var(--font-color);
+  border-radius: 2px;
+}
+
+.big-login {
+  font-size: 3rem;
+}
+
+.login-caption {
+  font-size: 1.3rem;
+  margin-top: -40px;
+  margin-bottom: 50px;
 }

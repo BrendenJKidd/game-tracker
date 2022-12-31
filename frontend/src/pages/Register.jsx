@@ -60,12 +60,12 @@ function Register() {
   }
 
   return (
-    <>
+    <div className="login-page">
       <section>
-        <h1>
+        <h1 className="big-login">
           <FaUser /> Register
         </h1>
-        <p>Please create an account</p>
+        <p className="login-caption">Please create an account</p>
       </section>
 
       <section>
@@ -77,6 +77,7 @@ function Register() {
             value={name} 
             placeholder='Username' 
             onChange={onChange}
+            className="email"
           />
           <input 
             type='email' 
@@ -85,6 +86,7 @@ function Register() {
             value={email} 
             placeholder='Email' 
             onChange={onChange}
+            className="email"
           />
           <input 
             type='password' 
@@ -93,6 +95,7 @@ function Register() {
             value={password} 
             placeholder='Password' 
             onChange={onChange}
+            className="email"
           />
           <input 
             type='password' 
@@ -101,11 +104,12 @@ function Register() {
             value={password2} 
             placeholder='Confirm password' 
             onChange={onChange}
+            className="email"
           />
-          <button type='submit'>Submit</button>
+          <button type='submit' className="login-submit">Submit</button>
         </form>
       </section>
-    </>
+    </div>
   )
 }
 

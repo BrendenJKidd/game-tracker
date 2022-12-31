@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
 import DarkMode from './DarkMode'
+import logo from '../game-tracker-logo.png'
 
 function Header(props) {
 const navigate = useNavigate()
@@ -18,6 +19,7 @@ const { user } = useSelector((state) => state.auth)
   return (
     <header className={props.nightmode && "header_dark"}>
       <div className="header-logo">
+        <img src={logo} className="main-logo"></img>
         <Link to='/' className="game-tracker">Game Tracker</Link>
       </div>
       <div className="header-elements">

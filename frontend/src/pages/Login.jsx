@@ -54,12 +54,12 @@ function Login() {
   }
 
   return (
-    <>
+    <div className="login-page">
       <section>
-        <h1>
+        <h1 className="big-login">
           <FaSignInAlt /> Login
         </h1>
-        <p>Login to see your games</p>
+        <p className="login-caption">Login to see your games</p>
       </section>
 
       <section>
@@ -71,6 +71,7 @@ function Login() {
             value={email} 
             placeholder='Email' 
             onChange={onChange}
+            className="email"
           />
           <input 
             type='password' 
@@ -79,11 +80,12 @@ function Login() {
             value={password} 
             placeholder='Password' 
             onChange={onChange}
+            className="password"
           />
-          <button type='submit'>Submit</button>
+          <button type='submit' className="login-submit">Submit</button>
         </form>
       </section>
-    </>
+    </div>
   )
 }
 
