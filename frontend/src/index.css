@@ -101,10 +101,6 @@ header {
 
 .header-logo {
   justify-self: right;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
 }
 
 .main-logo {
@@ -115,6 +111,10 @@ header {
   text-decoration: none;
   color: #646464;
   font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
 
 .user-buttons {
@@ -675,6 +675,7 @@ button {
   background-color: var(--header-background);
   color: var(--font-color);
   border-radius: 2px;
+  cursor: pointer;
 }
 
 .big-login {
@@ -685,4 +686,9 @@ button {
   font-size: 1.3rem;
   margin-top: -40px;
   margin-bottom: 50px;
+}
+
+.login-buttons {
+  text-decoration: none;
+  color: var(--font-color);
 }

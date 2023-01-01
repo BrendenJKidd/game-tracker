@@ -10,7 +10,7 @@ function GameForm(props) {
     publisher: '',
     releaseDate: '',
     platform: '',
-    status: '',
+    status: 'Unowned',
   })
 
   const { title, series, developer, publisher, releaseDate, platform, status, } = formData
