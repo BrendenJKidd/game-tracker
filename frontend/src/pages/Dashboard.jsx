@@ -7,6 +7,7 @@ import SNES from '../components/SNES'
 import { getGames, reset } from '../features/games/gameSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import logo from '../game-tracker-logo.png'
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -77,7 +78,7 @@ function Dashboard() {
                   />
                 </div>}
       <div className="SNES-container">
-        <SNES />
+        <img src={logo} className="main-snes"></img>
       </div>
       
       <div className="top-buttons">

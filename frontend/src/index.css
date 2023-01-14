@@ -104,13 +104,13 @@ header {
 }
 
 .main-logo {
-  height: 10vh;
+  height: 6vw;
 }
 
 .game-tracker {
   text-decoration: none;
   color: #646464;
-  font-size: 2rem;
+  font-size: 3vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,6 +120,11 @@ header {
 .user-buttons {
   margin: 10px;
   list-style-type: none;
+  height: 5vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .dashboard {
@@ -161,6 +166,7 @@ header {
   height: 90vh;
   width: 50vw;
   border-radius: 5px;
+  min-width: 450px;
 }
 
 form {
@@ -269,8 +275,14 @@ body {
 }
 
 .SNES-container {
-  height: 50vh;
+  display: flex;
+  justify-content: center;
   width: 100%;
+}
+
+.main-snes {
+  height: 50vh;
+  min-width: 500px;
 }
 
 .container {
@@ -683,7 +695,7 @@ button {
 }
 
 .login-caption {
-  font-size: 1.3rem;
+  font-size: ;
   margin-top: -40px;
   margin-bottom: 50px;
 }
@@ -691,4 +703,5 @@ button {
 .login-buttons {
   text-decoration: none;
   color: var(--font-color);
+  font-size: 2vh;
 }
